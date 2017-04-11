@@ -1,0 +1,23 @@
+{
+  "name": "target-acquired",
+  "version": "1.0.0",
+  "description": "Insiten code challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jesslynlandgren/target-acquired.git"
+  },
+  "author": "Jesslyn Landgren",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jesslynlandgren/target-acquired/issues"
+  },
+  "homepage": "https://github.com/jesslynlandgren/target-acquired#readme",
+  "dependencies": {
+    "angular": "^1.6.4",
+    "angular-ui-router": "^0.4.2"
+  }
+}
