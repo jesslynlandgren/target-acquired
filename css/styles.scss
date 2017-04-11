@@ -1,0 +1,162 @@
+// ===================
+// VARIABLES & MIXINS
+// ===================
+
+// FONTS
+$body-font: 'Ubuntu', sans-serif;
+
+
+// COLORS
+
+$white: #ffffff;
+
+/* Clouds */
+$clouds: #ecf0f1;
+$clouds-50: #fdfefe;
+$clouds-100: #fbfcfc;
+$clouds-200: #f7f9f9;
+$clouds-300: #f4f6f7;
+$clouds-400: #f0f3f4;
+$clouds-500: #ecf0f1;
+$clouds-600: #d0d3d4;
+$clouds-700: #b3b6b7;
+$clouds-800: #979a9a;
+$clouds-900: #7b7d7d;
+
+/* Silver */
+$silver: #bdc3c7;
+$silver-50: #f8f9f9;
+$silver-100: #f2f3f4;
+$silver-200: #e5e7e9;
+$silver-300: #d7dbdd;
+$silver-400: #cacfd2;
+$silver-500: #bdc3c7;
+$silver-600: #a6acaf;
+$silver-700: #909497;
+$silver-800: #797d7f;
+$silver-900: #626567;
+
+/* Nephritis */
+$nephritis: #27ae60;
+$nephritis-50: #e9f7ef;
+$nephritis-100: #d4efdf;
+$nephritis-200: #a9dfbf;
+$nephritis-300: #7dcea0;
+$nephritis-400: #52be80;
+$nephritis-500: #27ae60;
+$nephritis-600: #229954;
+$nephritis-700: #1e8449;
+$nephritis-800: #196f3d;
+$nephritis-900: #145a32;
+
+/* Green Sea */
+$green-sea: #16a085;
+$green-sea-50: #e8f6f3;
+$green-sea-100: #d0ece7;
+$green-sea-200: #a2d9ce;
+$green-sea-300: #73c6b6;
+$green-sea-400: #45b39d;
+$green-sea-500: #16a085;
+$green-sea-600: #138d75;
+$green-sea-700: #117a65;
+$green-sea-800: #0e6655;
+$green-sea-900: #0b5345;
+
+
+// HELPER CLASSES
+
+.row-vertical-center-space-btwn,
+.row-vertical-center {
+    display: flex;
+}
+
+.row-vertical-center-space-btwn,
+.row-vertical-center {
+    align-items: center;
+}
+
+.row-vertical-center-space-btwn {
+    justify-content: space-between;
+}
+
+.static-horizontal {
+    flex: 0 0 auto;
+}
+
+.stretch-horizontal {
+    flex: 1 1 auto;
+}
+
+.static-horizontal,
+.stretch-horizontal {
+    min-width: 1px;
+}
+
+// ========================
+// RESETS
+// ========================
+
+html {
+    height: 100%;
+}
+
+body {
+    border: 1px solid white;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: $body-font;
+}
+
+// ========================
+// STYLES
+// ========================
+
+.header {
+    // border: 2px solid orange;
+    background-color: $silver-400;
+    padding: 1rem;
+
+    &__title {
+        font-size: 4rem;
+        margin-left: 2rem;
+    }
+
+    &__actions {
+        // border: 2px solid green;
+    }
+
+    &__search {
+        // border: 2px solid yellow;
+        border: none;
+        border-radius: 2px;
+        line-height: 4rem;
+        padding-left: 2rem;
+
+        &:focus {
+            outline: 1px solid red;
+        }
+    }
+
+    &__add {
+        border: none;
+        background-color: $nephritis-600;
+        color: $white;
+        padding: 1rem 1.5rem;
+        border-radius: 2px;
+        margin-left: 2rem;
+        font-size: 2rem;
+    }
+
+    &__list {
+        border: none;
+        background-color: $nephritis-600;
+        color: $white;
+        padding: 1rem 1.5rem;
+        border-radius: 2px;
+        margin-left: 2rem;
+        font-size: 2rem;
+    }
+
+
+}

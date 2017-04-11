@@ -5,15 +5,31 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Target Acquired</title>
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/styles.css">
     </head>
 
     <body ng-app="target-acquired">
-        <h1>target-acquired</h1>
+        <div class="header col-xs-12 row-vertical-center">
+            <span class="header__title col-xs-3">target-acquired</span>
+            <div class="header__actions col-xs-6 row-vertical-center-space-btwn">
+                <input class="header__search stretch-horizontal" />
+                <button class="header__add static-horizontal">
+                    <i class="fa fa-fw fa-plus-circle"></i>
+                </button>
+                <button class="header__list static-horizontal">
+                    <i class="fa fa-fw fa-list"></i>
+                </button>
+            </div>
+        </div>
         <ui-view></ui-view>
 
         <!-- JS -->
-        <script src="js/angular.js" charset="utf-8"></script>
-        <script src="js/angular-ui-router.js" charset="utf-8"></script>
+        <script src="js/angular.min.js" charset="utf-8"></script>
+        <script src="js/angular-ui-router.min.js" charset="utf-8"></script>
+        <script src="js/bootstrap.min.js" charset="utf-8"></script>
         <script src="js/index.js" charset="utf-8"></script>
     </body>
 
