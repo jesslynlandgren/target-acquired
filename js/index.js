@@ -1,31 +1,491 @@
-const app = angular.module("target-acquired", ["ui.router"]);
+const app = angular.module("target-acquired", ["ui.router", "ui.bootstrap"]);
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
     $stateProvider
     .state({
-        name: "home",
+        name: "list",
         url: "/",
-        templateUrl: "views/test.html",
-        controller: "HomeController",
+        templateUrl: "views/list.html",
+        controller: "ListController",
+    })
+    .state({
+        name: "single",
+        url: "/:name",
+        templateUrl: "views/single.html",
+        controller: "SingleController",
     });
 
     $urlRouterProvider.otherwise('/');
 });
 
-app.factory("data", function() {
-    const data = [{
-            name: 'J.R. Andersson LLC',
-            status: 'researching',
-            companyInfo: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis enim pharetra, pharetra massa et, dictum nibh. Nullam in lorem at ex rutrum ornare.',
-            keyContacts: ['May Richards', 'Dana Velasquez', 'Tanya Solis'],
-            financialPerformance: 'Up 25% from last quarter'
+app.factory("TargetData", function() {
+    const service = {};
+
+    service.data = [
+        {
+            name: "Coke",
+            assignedTo: "Juan Cortes",
+            location: {
+                city: "Atlanta",
+                state: "GA",
+            },
+            status: "Pending",
+            industry: "Beverages",
+            summary: "This is ATL, you better know Coke",
+            contacts: ["Shhhhh"],
+            financialPerformance: [
+                {
+                    month: 1,
+                    earnings: 10,
+                },
+                {
+                    month: 2,
+                    earnings: 15,
+                },
+                {
+                    month: 3,
+                    earnings: 5,
+                },
+                {
+                    month: 4,
+                    earnings: 20,
+                },
+            ]
+        },
+        {
+            name: "Chik-fil-a",
+            assignedTo: "Juan Cortes",
+            location: {
+                city: "Atlanta",
+                state: "GA",
+            },
+            status: "Pending",
+            industry: "Beverages",
+            summary: "This is ATL, you better know Coke",
+            contacts: ["Shhhhh"],
+            financialPerformance: [
+                {
+                    month: 1,
+                    earnings: 10,
+                },
+                {
+                    month: 2,
+                    earnings: 15,
+                },
+                {
+                    month: 3,
+                    earnings: 5,
+                },
+                {
+                    month: 4,
+                    earnings: 20,
+                },
+            ]
+        },
+        {
+            name: "OneTrust",
+            assignedTo: "Juan Cortes",
+            location: {
+                city: "Atlanta",
+                state: "GA",
+            },
+            status: "Pending",
+            industry: "Beverages",
+            summary: "This is ATL, you better know Coke",
+            contacts: ["Shhhhh"],
+            financialPerformance: [
+                {
+                    month: 1,
+                    earnings: 10,
+                },
+                {
+                    month: 2,
+                    earnings: 15,
+                },
+                {
+                    month: 3,
+                    earnings: 5,
+                },
+                {
+                    month: 4,
+                    earnings: 20,
+                },
+            ]
+        },
+        {
+            name: "Insiten",
+            assignedTo: "Juan Cortes",
+            location: {
+                city: "Atlanta",
+                state: "GA",
+            },
+            status: "Pending",
+            industry: "Beverages",
+            summary: "This is ATL, you better know Coke",
+            contacts: ["Shhhhh"],
+            financialPerformance: [
+                {
+                    month: 1,
+                    earnings: 10,
+                },
+                {
+                    month: 2,
+                    earnings: 15,
+                },
+                {
+                    month: 3,
+                    earnings: 5,
+                },
+                {
+                    month: 4,
+                    earnings: 20,
+                },
+            ]
+        },
+        {
+            name: "Coke",
+            assignedTo: "Juan Cortes",
+            location: {
+                city: "Atlanta",
+                state: "GA",
+            },
+            status: "Pending",
+            industry: "Beverages",
+            summary: "This is ATL, you better know Coke",
+            contacts: ["Shhhhh"],
+            financialPerformance: [
+                {
+                    month: 1,
+                    earnings: 10,
+                },
+                {
+                    month: 2,
+                    earnings: 15,
+                },
+                {
+                    month: 3,
+                    earnings: 5,
+                },
+                {
+                    month: 4,
+                    earnings: 20,
+                },
+            ]
+        },
+        {
+            name: "Coke",
+            assignedTo: "Juan Cortes",
+            location: {
+                city: "Atlanta",
+                state: "GA",
+            },
+            status: "Pending",
+            industry: "Beverages",
+            summary: "This is ATL, you better know Coke",
+            contacts: ["Shhhhh"],
+            financialPerformance: [
+                {
+                    month: 1,
+                    earnings: 10,
+                },
+                {
+                    month: 2,
+                    earnings: 15,
+                },
+                {
+                    month: 3,
+                    earnings: 5,
+                },
+                {
+                    month: 4,
+                    earnings: 20,
+                },
+            ]
+        },
+        {
+            name: "Coke",
+            assignedTo: "Juan Cortes",
+            location: {
+                city: "Atlanta",
+                state: "GA",
+            },
+            status: "Pending",
+            industry: "Beverages",
+            summary: "This is ATL, you better know Coke",
+            contacts: ["Shhhhh"],
+            financialPerformance: [
+                {
+                    month: 1,
+                    earnings: 10,
+                },
+                {
+                    month: 2,
+                    earnings: 15,
+                },
+                {
+                    month: 3,
+                    earnings: 5,
+                },
+                {
+                    month: 4,
+                    earnings: 20,
+                },
+            ]
+        },
+        {
+            name: "Coke",
+            assignedTo: "Juan Cortes",
+            location: {
+                city: "Atlanta",
+                state: "GA",
+            },
+            status: "Pending",
+            industry: "Beverages",
+            summary: "This is ATL, you better know Coke",
+            contacts: ["Shhhhh"],
+            financialPerformance: [
+                {
+                    month: 1,
+                    earnings: 10,
+                },
+                {
+                    month: 2,
+                    earnings: 15,
+                },
+                {
+                    month: 3,
+                    earnings: 5,
+                },
+                {
+                    month: 4,
+                    earnings: 20,
+                },
+            ]
+        },
+        {
+            name: "Coke",
+            assignedTo: "Juan Cortes",
+            location: {
+                city: "Atlanta",
+                state: "GA",
+            },
+            status: "Pending",
+            industry: "Beverages",
+            summary: "This is ATL, you better know Coke",
+            contacts: ["Shhhhh"],
+            financialPerformance: [
+                {
+                    month: 1,
+                    earnings: 10,
+                },
+                {
+                    month: 2,
+                    earnings: 15,
+                },
+                {
+                    month: 3,
+                    earnings: 5,
+                },
+                {
+                    month: 4,
+                    earnings: 20,
+                },
+            ]
+        },
+        {
+            name: "Coke",
+            assignedTo: "Juan Cortes",
+            location: {
+                city: "Atlanta",
+                state: "GA",
+            },
+            status: "Pending",
+            industry: "Beverages",
+            summary: "This is ATL, you better know Coke",
+            contacts: ["Shhhhh"],
+            financialPerformance: [
+                {
+                    month: 1,
+                    earnings: 10,
+                },
+                {
+                    month: 2,
+                    earnings: 15,
+                },
+                {
+                    month: 3,
+                    earnings: 5,
+                },
+                {
+                    month: 4,
+                    earnings: 20,
+                },
+            ]
+        },
+        {
+            name: "Coke",
+            assignedTo: "Juan Cortes",
+            location: {
+                city: "Atlanta",
+                state: "GA",
+            },
+            status: "Pending",
+            industry: "Beverages",
+            summary: "This is ATL, you better know Coke",
+            contacts: ["Shhhhh"],
+            financialPerformance: [
+                {
+                    month: 1,
+                    earnings: 10,
+                },
+                {
+                    month: 2,
+                    earnings: 15,
+                },
+                {
+                    month: 3,
+                    earnings: 5,
+                },
+                {
+                    month: 4,
+                    earnings: 20,
+                },
+            ]
+        },
+        {
+            name: "Coke",
+            assignedTo: "Juan Cortes",
+            location: {
+                city: "Atlanta",
+                state: "GA",
+            },
+            status: "Pending",
+            industry: "Beverages",
+            summary: "This is ATL, you better know Coke",
+            contacts: ["Shhhhh"],
+            financialPerformance: [
+                {
+                    month: 1,
+                    earnings: 10,
+                },
+                {
+                    month: 2,
+                    earnings: 15,
+                },
+                {
+                    month: 3,
+                    earnings: 5,
+                },
+                {
+                    month: 4,
+                    earnings: 20,
+                },
+            ]
+        },
+        {
+            name: "Coke",
+            assignedTo: "Juan Cortes",
+            location: {
+                city: "Atlanta",
+                state: "GA",
+            },
+            status: "Pending",
+            industry: "Beverages",
+            summary: "This is ATL, you better know Coke",
+            contacts: ["Shhhhh"],
+            financialPerformance: [
+                {
+                    month: 1,
+                    earnings: 10,
+                },
+                {
+                    month: 2,
+                    earnings: 15,
+                },
+                {
+                    month: 3,
+                    earnings: 5,
+                },
+                {
+                    month: 4,
+                    earnings: 20,
+                },
+            ]
+        },
+        {
+            name: "Coke",
+            assignedTo: "Juan Cortes",
+            location: {
+                city: "Atlanta",
+                state: "GA",
+            },
+            status: "Pending",
+            industry: "Beverages",
+            summary: "This is ATL, you better know Coke",
+            contacts: ["Shhhhh"],
+            financialPerformance: [
+                {
+                    month: 1,
+                    earnings: 10,
+                },
+                {
+                    month: 2,
+                    earnings: 15,
+                },
+                {
+                    month: 3,
+                    earnings: 5,
+                },
+                {
+                    month: 4,
+                    earnings: 20,
+                },
+            ]
+        },
+        {
+            name: "Coke",
+            assignedTo: "Juan Cortes",
+            location: {
+                city: "Atlanta",
+                state: "GA",
+            },
+            status: "Pending",
+            industry: "Beverages",
+            summary: "This is ATL, you better know Coke",
+            contacts: ["Shhhhh"],
+            financialPerformance: [
+                {
+                    month: 1,
+                    earnings: 10,
+                },
+                {
+                    month: 2,
+                    earnings: 15,
+                },
+                {
+                    month: 3,
+                    earnings: 5,
+                },
+                {
+                    month: 4,
+                    earnings: 20,
+                },
+            ]
         },
     ];
 
-    return data;
+    return service;
 });
 
-app.controller("HomeController", function() {
-    console.log("YOURE IN THE HOME CONTROLLER");
+app.controller("HeaderController", function($scope, TargetData) {
+    $scope.targets = TargetData.data;
+});
+
+app.controller("ListController", function($scope, TargetData) {
+    $scope.targets = TargetData.data;
+});
+
+app.controller("SingleController", function($scope, TargetData, $stateParams) {
+    $scope.target = _.find(TargetData.data, {name: $stateParams.name});
 });

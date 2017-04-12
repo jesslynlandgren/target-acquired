@@ -1,0 +1,7 @@
+<form class="target-read stretch-vertical">
+    <div class="form-group">
+        <label for="targetName" class="control-label">Company</label>
+        <span ng-if="!editing">{{target.name}}</span>
+        <input ng-if="editing" type="text" class="form-control" name="targetName" placeholder="Name">
+    </div>
+</form>

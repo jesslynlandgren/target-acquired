@@ -1,0 +1,16 @@
+<div class="target-list stretch-vertical">
+    <div class="target-list__item"
+        ng-repeat="target in targets track by $index"
+        ui-sref="single({name: target.name})"
+        ng-mouseenter="hover=true"
+        ng-mouseleave="hover=false"
+        >
+        <span class="target-list__name col-xs-2">{{::target.name}}</span>
+        <span class="target-list__city col-xs-4">{{::target.location.city}}</span>
+        <span class="target-list__status">{{::target.status}}</span>
+        <i class="fa fa-fw fa-times"
+            ng-show="hover"
+            ng-click="deleteTarget($index)">
+        </i>
+    </div>
+</div>

@@ -6,30 +6,36 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Target Acquired</title>
         <!-- Stylesheets -->
+        <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
         <link rel="stylesheet" href="css/font-awesome.min.css">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/styles.css">
     </head>
 
-    <body ng-app="target-acquired">
-        <div class="header col-xs-12 row-vertical-center">
+    <body ng-app="target-acquired" class="column-horizontal-center">
+        <div class="header col-xs-12 row-vertical-center static-vertical">
             <span class="header__title col-xs-3">target-acquired</span>
-            <div class="header__actions col-xs-6 row-vertical-center-space-btwn">
-                <input class="header__search stretch-horizontal" />
-                <button class="header__add static-horizontal">
+            <div class="header__actions col-xs-6 row-vertical-center-space-btwn" ng-controller="HeaderController">
+                <input class="header__search stretch-horizontal"
+                    placeholder="Find a target"
+                    ng-model="selectedTarget"
+                    uib-typeahead="target as target.name for target in targets"
+                    />
+                <div class="header__add static-horizontal">
                     <i class="fa fa-fw fa-plus-circle"></i>
-                </button>
-                <button class="header__list static-horizontal">
+                </div>
+                <div class="header__list static-horizontal" ui-sref="list">
                     <i class="fa fa-fw fa-list"></i>
-                </button>
+                </div>
             </div>
         </div>
-        <ui-view></ui-view>
+        <ui-view class="content col-xs-8 stretch-vertical"></ui-view>
 
         <!-- JS -->
-        <script src="js/angular.min.js" charset="utf-8"></script>
-        <script src="js/angular-ui-router.min.js" charset="utf-8"></script>
-        <script src="js/bootstrap.min.js" charset="utf-8"></script>
+        <script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js" charset="utf-8"></script>
+        <script src="js/angular.js" charset="utf-8"></script>
+        <script src="js/angular-ui-router.js" charset="utf-8"></script>
+        <script src="js/ui-bootstrap-tpls.js" charset="utf-8"></script>
         <script src="js/index.js" charset="utf-8"></script>
     </body>
 

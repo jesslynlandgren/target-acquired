@@ -3,7 +3,7 @@
 // ===================
 
 // FONTS
-$body-font: 'Ubuntu', sans-serif;
+$body-font: 'Muli', sans-serif;
 
 
 // COLORS
@@ -66,30 +66,43 @@ $green-sea-900: #0b5345;
 // HELPER CLASSES
 
 .row-vertical-center-space-btwn,
-.row-vertical-center {
+.row-vertical-center,
+.column-horizontal-center {
     display: flex;
 }
 
+.column-horizontal-center {
+    flex-flow: column nowrap;
+}
+
 .row-vertical-center-space-btwn,
-.row-vertical-center {
+.row-vertical-center,
+.column-horizontal-center {
     align-items: center;
 }
 
-.row-vertical-center-space-btwn {
+.row-vertical-center-space-btwn, {
     justify-content: space-between;
 }
 
-.static-horizontal {
+.static-horizontal,
+.static-vertical {
     flex: 0 0 auto;
 }
 
-.stretch-horizontal {
+.stretch-horizontal,
+.stretch-vertical {
     flex: 1 1 auto;
 }
 
 .static-horizontal,
 .stretch-horizontal {
     min-width: 1px;
+}
+
+.static-vertical,
+.stretch-vertical {
+    min-height: 1px;
 }
 
 // ========================
@@ -113,9 +126,9 @@ body {
 // ========================
 
 .header {
-    // border: 2px solid orange;
     background-color: $silver-400;
     padding: 1rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 
     &__title {
         font-size: 4rem;
@@ -123,24 +136,23 @@ body {
     }
 
     &__actions {
-        // border: 2px solid green;
     }
 
     &__search {
-        // border: 2px solid yellow;
         border: none;
-        border-radius: 2px;
-        line-height: 4rem;
+        line-height: 4.3rem;
         padding-left: 2rem;
+        color: $nephritis-400;
 
         &:focus {
-            outline: 1px solid red;
+            outline: none;
+            border: 2px solid $nephritis-400;
         }
     }
 
     &__add {
         border: none;
-        background-color: $nephritis-600;
+        background-color: $nephritis-500;
         color: $white;
         padding: 1rem 1.5rem;
         border-radius: 2px;
@@ -150,7 +162,7 @@ body {
 
     &__list {
         border: none;
-        background-color: $nephritis-600;
+        background-color: $nephritis-500;
         color: $white;
         padding: 1rem 1.5rem;
         border-radius: 2px;
@@ -158,5 +170,42 @@ body {
         font-size: 2rem;
     }
 
+}
 
+.content {
+    padding: 4rem 0 4rem 0;
+    display: flex;
+}
+
+.target-list {
+    display: block;
+    overflow-y: auto;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+    &__item {
+        border-bottom: 1px dotted $silver-200;
+        padding: 1rem;
+
+        &:hover {
+            background-color: $nephritis-400;
+            color: $white;
+        }
+    }
+
+    &__name {
+        // border: 2px solid green;
+    }
+
+    &__city {
+        // border: 2px solid blue;
+    }
+
+    &__status {
+        // border: 2px solid orange;
+        text-align: center;
+    }
+}
+
+.target-read {
+    border: 2px solid red;
 }
