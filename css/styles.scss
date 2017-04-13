@@ -9,6 +9,7 @@ $body-font: 'Muli', sans-serif;
 // COLORS
 
 $white: #ffffff;
+$red: #d9534f;
 
 /* Clouds */
 $clouds: #ecf0f1;
@@ -67,10 +68,12 @@ $green-sea-900: #0b5345;
 
 .row-vertical-center-space-btwn,
 .row-vertical-center,
+.column,
 .column-horizontal-center {
     display: flex;
 }
 
+.column,
 .column-horizontal-center {
     flex-flow: column nowrap;
 }
@@ -105,6 +108,19 @@ $green-sea-900: #0b5345;
     min-height: 1px;
 }
 
+.text-right {
+    text-align: right;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.green {
+    color: $nephritis-400;
+}
+
+
 // ========================
 // RESETS
 // ========================
@@ -119,6 +135,7 @@ body {
     padding: 0;
     height: 100%;
     font-family: $body-font;
+    background-color: $silver-50;
 }
 
 // ========================
@@ -131,7 +148,7 @@ body {
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 
     &__title {
-        font-size: 4rem;
+        font-size: 3.5rem;
         margin-left: 2rem;
     }
 
@@ -150,37 +167,32 @@ body {
         }
     }
 
-    &__add {
-        border: none;
-        background-color: $nephritis-500;
-        color: $white;
-        padding: 1rem 1.5rem;
-        border-radius: 2px;
-        margin-left: 2rem;
+    &__actions {
+        margin-left: 1rem;
         font-size: 2rem;
     }
 
-    &__list {
-        border: none;
-        background-color: $nephritis-500;
-        color: $white;
-        padding: 1rem 1.5rem;
-        border-radius: 2px;
-        margin-left: 2rem;
-        font-size: 2rem;
+    &__add {
+        color: $nephritis-400;
+        font-size: 4rem;
     }
 
 }
 
 .content {
     padding: 4rem 0 4rem 0;
-    display: flex;
+    // border: 2px solid green;
+}
+
+.delete {
+    color: $red;
 }
 
 .target-list {
     display: block;
     overflow-y: auto;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    background-color: white;
 
     &__item {
         border-bottom: 1px dotted $silver-200;
@@ -206,6 +218,41 @@ body {
     }
 }
 
-.target-read {
-    border: 2px solid red;
+.target-single {
+    // border: 2px solid red;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    padding: 2rem 3rem;
+    background-color: white;
+
+    &__header {
+        // border: 2px solid purple;
+        font-size: 2rem;
+    }
+
+    &__content {
+        padding-top: 1rem;
+        overflow-y: auto;
+
+        input {
+            padding-left: 1rem;
+
+            &:focus {
+                outline: none;
+                border: 1px solid $nephritis-400;
+            }
+        }
+    }
+
+    &__name {
+        font-size: 4rem;
+    }
+
+    &__property-group {
+        // border: 2px solid blue;
+        margin-bottom: 2rem;
+    }
+
+    &__property-label {
+        color: $nephritis-400;
+    }
 }

@@ -11,7 +11,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     })
     .state({
         name: "single",
-        url: "/:name",
+        url: "/:name?",
         templateUrl: "views/single.html",
         controller: "SingleController",
     });
@@ -323,169 +323,49 @@ app.factory("TargetData", function() {
                 },
             ]
         },
-        {
-            name: "Coke",
-            assignedTo: "Juan Cortes",
-            location: {
-                city: "Atlanta",
-                state: "GA",
-            },
-            status: "Pending",
-            industry: "Beverages",
-            summary: "This is ATL, you better know Coke",
-            contacts: ["Shhhhh"],
-            financialPerformance: [
-                {
-                    month: 1,
-                    earnings: 10,
-                },
-                {
-                    month: 2,
-                    earnings: 15,
-                },
-                {
-                    month: 3,
-                    earnings: 5,
-                },
-                {
-                    month: 4,
-                    earnings: 20,
-                },
-            ]
-        },
-        {
-            name: "Coke",
-            assignedTo: "Juan Cortes",
-            location: {
-                city: "Atlanta",
-                state: "GA",
-            },
-            status: "Pending",
-            industry: "Beverages",
-            summary: "This is ATL, you better know Coke",
-            contacts: ["Shhhhh"],
-            financialPerformance: [
-                {
-                    month: 1,
-                    earnings: 10,
-                },
-                {
-                    month: 2,
-                    earnings: 15,
-                },
-                {
-                    month: 3,
-                    earnings: 5,
-                },
-                {
-                    month: 4,
-                    earnings: 20,
-                },
-            ]
-        },
-        {
-            name: "Coke",
-            assignedTo: "Juan Cortes",
-            location: {
-                city: "Atlanta",
-                state: "GA",
-            },
-            status: "Pending",
-            industry: "Beverages",
-            summary: "This is ATL, you better know Coke",
-            contacts: ["Shhhhh"],
-            financialPerformance: [
-                {
-                    month: 1,
-                    earnings: 10,
-                },
-                {
-                    month: 2,
-                    earnings: 15,
-                },
-                {
-                    month: 3,
-                    earnings: 5,
-                },
-                {
-                    month: 4,
-                    earnings: 20,
-                },
-            ]
-        },
-        {
-            name: "Coke",
-            assignedTo: "Juan Cortes",
-            location: {
-                city: "Atlanta",
-                state: "GA",
-            },
-            status: "Pending",
-            industry: "Beverages",
-            summary: "This is ATL, you better know Coke",
-            contacts: ["Shhhhh"],
-            financialPerformance: [
-                {
-                    month: 1,
-                    earnings: 10,
-                },
-                {
-                    month: 2,
-                    earnings: 15,
-                },
-                {
-                    month: 3,
-                    earnings: 5,
-                },
-                {
-                    month: 4,
-                    earnings: 20,
-                },
-            ]
-        },
-        {
-            name: "Coke",
-            assignedTo: "Juan Cortes",
-            location: {
-                city: "Atlanta",
-                state: "GA",
-            },
-            status: "Pending",
-            industry: "Beverages",
-            summary: "This is ATL, you better know Coke",
-            contacts: ["Shhhhh"],
-            financialPerformance: [
-                {
-                    month: 1,
-                    earnings: 10,
-                },
-                {
-                    month: 2,
-                    earnings: 15,
-                },
-                {
-                    month: 3,
-                    earnings: 5,
-                },
-                {
-                    month: 4,
-                    earnings: 20,
-                },
-            ]
-        },
+    ];
+
+    service.statuses = [
+        "researching",
+        "pending",
+        "approved",
+        "declined",
     ];
 
     return service;
 });
 
-app.controller("HeaderController", function($scope, TargetData) {
-    $scope.targets = TargetData.data;
+app.controller("HeaderController", function($rootScope, $scope, TargetData) {
+    $rootScope.targets = TargetData.data
+    $scope.targets = $rootScope.targets;
 });
 
-app.controller("ListController", function($scope, TargetData) {
-    $scope.targets = TargetData.data;
+app.controller("ListController", function($rootScope, $scope) {
+    $scope.targets = $rootScope.targets;
 });
 
-app.controller("SingleController", function($scope, TargetData, $stateParams) {
-    $scope.target = _.find(TargetData.data, {name: $stateParams.name});
+app.controller("SingleController", function($rootScope, $scope, $stateParams, $state, TargetData) {
+    $scope.edit = function() {
+        $scope.editing = true;
+    };
+
+    $scope.save = function() {
+        $scope.editing = false;
+    };
+
+    $scope.delete = function() {
+        _.remove($rootScope.targets, {name: $stateParams.name});
+        $state.go("list");
+    };
+
+    $scope.statusOptions = TargetData.statuses;
+
+    if ($stateParams.name) {
+        $scope.new = false;
+        $scope.target = _.find($rootScope.targets, {name: $stateParams.name});
+        $scope.editing = false;
+    } else {
+        $scope.edit();
+    }
+
 });

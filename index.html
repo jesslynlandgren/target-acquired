@@ -20,16 +20,13 @@
                     placeholder="Find a target"
                     ng-model="selectedTarget"
                     uib-typeahead="target as target.name for target in targets"
-                    />
-                <div class="header__add static-horizontal">
-                    <i class="fa fa-fw fa-plus-circle"></i>
-                </div>
-                <div class="header__list static-horizontal" ui-sref="list">
-                    <i class="fa fa-fw fa-list"></i>
-                </div>
+                />
+                <i class="fa fa-fw fa-plus header__actions header__add" ui-sref="single"></i>
+                <i class="fa fa-fw fa-list header__actions" ui-sref="list"></i>
+                <i class="fa fa-fw fa-map-marker header__actions" ui-sref="map"></i>
             </div>
         </div>
-        <ui-view class="content col-xs-8 stretch-vertical"></ui-view>
+        <ui-view class="content col-xs-8 stretch-vertical column"></ui-view>
 
         <!-- JS -->
         <script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js" charset="utf-8"></script>

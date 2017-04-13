@@ -1,7 +1,39 @@
-<form class="target-read stretch-vertical">
-    <div class="form-group">
-        <label for="targetName" class="control-label">Company</label>
-        <span ng-if="!editing">{{target.name}}</span>
-        <input ng-if="editing" type="text" class="form-control" name="targetName" placeholder="Name">
+<form class="target-single stretch-vertical">
+    <div class="target-single__header width-100 text-right">
+        <i class="fa fa-fw fa-pencil green" ng-if="!editing" ng-click="edit()"></i>
+        <i class="fa fa-fw fa-check green" ng-if="editing" ng-click="save()"></i>
+        <i class="fa fa-fw fa-trash delete" ng-click="delete()"></i>
+        <i class="fa fa-fw fa-times" ui-sref="list"></i>
+    </div>
+    <div class="target-single__content">
+        <div class="target-single__property-group column">
+            <span ng-if="!editing" class="target-single__name">{{target.name}}</span>
+            <input ng-if="editing" ng-model="target.name" class="target-single__name" type="text" placeholder="Company Name">
+            <div ng-class="{{target.status}}">{{target.status}}</div>
+            <select ng-if="editing" ng-options="status for status in statusOptions" ng-model="target.status"></select>
+        </div>
+        <div class="target-single__property-group column">
+            <label for="targetLocation" class="target-single__property-label">Location</label>
+            <span ng-if="!editing">{{target.location.city}}, {{target.location.state}}</span>
+            <div class="row-vertical-center">
+                <input ng-if="editing" ng-model="target.location.city" class="col-xs-6" type="text" placeholder="City">
+                <input ng-if="editing" ng-model="target.location.state" class="col-xs-6" type="text" placeholder="State">
+            </div>
+        </div>
+        <div class="target-single__property-group column">
+            <label for="targetIndustry" class="target-single__property-label">Industry</label>
+            <span ng-if="!editing">{{target.industry}}</span>
+            <input ng-if="editing" ng-model="target.industry" type="text" placeholder="Industry">
+        </div>
+        <div class="target-single__property-group column">
+            <label for="targetSummary" class="target-single__property-label">Summary</label>
+            <span ng-if="!editing">{{target.summary}}</span>
+            <textarea ng-if="editing" ng-model="target.summary" type="text" placeholder="Summary"></textarea>
+        </div>
+        <div class="target-single__property-group column">
+            <label for="targetSummary" class="target-single__property-label">Contacts</label>
+            <span ng-if="!editing" ng-repeat="contact in target.contacts track by $index">{{contact}}</span>
+            <input ng-if="editing" ng-model="target.contacts" type="text" placeholder="Name">
+        </div>
     </div>
 </form>
