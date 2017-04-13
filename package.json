@@ -18,7 +18,6 @@
   "homepage": "https://github.com/jesslynlandgren/target-acquired#readme",
   "dependencies": {
     "angular": "^1.6.4",
-    "angular-ui-bootstrap": "^2.5.0",
     "angular-ui-router": "^0.4.2",
     "lodash": "^4.17.4"
   }

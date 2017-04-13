@@ -16,23 +16,35 @@
         <div class="header col-xs-12 row-vertical-center static-vertical">
             <span class="header__title col-xs-3">target-acquired</span>
             <div class="header__actions col-xs-6 row-vertical-center-space-btwn" ng-controller="HeaderController">
-                <input class="header__search stretch-horizontal"
-                    placeholder="Find a target"
-                    ng-model="selectedTarget"
-                    uib-typeahead="target as target.name for target in targets"
-                />
-                <i class="fa fa-fw fa-plus header__actions header__add" ui-sref="single"></i>
+                <div class="header__search stretch-horizontal column">
+                    <input
+                        class="header__search-bar"
+                        placeholder="Find a target"
+                        ng-focus="focus()"
+                        ng-blur="blur()"
+                        ng-model="query"
+                        ng-change="search(query)"
+                        ng-keypress="go($event)"
+                    />
+                    <div ng-if="focused" class="header__search-results">
+                        <div class="header__search-results-container column width-100">
+                            <span
+                                ng-repeat="result in results | limitTo: 5 track by $index"
+                                class="header__search-result" ng-class="{'header__search-result--selected': $index === 0}">{{result.name}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <i class="fa fa-fw fa-plus header__actions header__add" ui-sref="single({name: null})"></i>
                 <i class="fa fa-fw fa-list header__actions" ui-sref="list"></i>
-                <i class="fa fa-fw fa-map-marker header__actions" ui-sref="map"></i>
             </div>
         </div>
-        <ui-view class="content col-xs-8 stretch-vertical column"></ui-view>
+        <ui-view class="content col-xs-6 stretch-vertical column"></ui-view>
 
         <!-- JS -->
         <script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js" charset="utf-8"></script>
-        <script src="js/angular.js" charset="utf-8"></script>
-        <script src="js/angular-ui-router.js" charset="utf-8"></script>
-        <script src="js/ui-bootstrap-tpls.js" charset="utf-8"></script>
+        <script src="js/angular.min.js" charset="utf-8"></script>
+        <script src="js/angular-ui-router.min.js" charset="utf-8"></script>
         <script src="js/index.js" charset="utf-8"></script>
     </body>
 

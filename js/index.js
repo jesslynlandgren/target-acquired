@@ -1,4 +1,4 @@
-const app = angular.module("target-acquired", ["ui.router", "ui.bootstrap"]);
+const app = angular.module("target-acquired", ["ui.router"]);
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
@@ -25,304 +25,101 @@ app.factory("TargetData", function() {
     service.data = [
         {
             name: "Coke",
-            assignedTo: "Juan Cortes",
             location: {
                 city: "Atlanta",
                 state: "GA",
             },
-            status: "Pending",
+            status: "researching",
             industry: "Beverages",
             summary: "This is ATL, you better know Coke",
-            contacts: ["Shhhhh"],
-            financialPerformance: [
-                {
-                    month: 1,
-                    earnings: 10,
-                },
-                {
-                    month: 2,
-                    earnings: 15,
-                },
-                {
-                    month: 3,
-                    earnings: 5,
-                },
-                {
-                    month: 4,
-                    earnings: 20,
-                },
-            ]
-        },
-        {
-            name: "Chik-fil-a",
-            assignedTo: "Juan Cortes",
-            location: {
-                city: "Atlanta",
-                state: "GA",
-            },
-            status: "Pending",
-            industry: "Beverages",
-            summary: "This is ATL, you better know Coke",
-            contacts: ["Shhhhh"],
-            financialPerformance: [
-                {
-                    month: 1,
-                    earnings: 10,
-                },
-                {
-                    month: 2,
-                    earnings: 15,
-                },
-                {
-                    month: 3,
-                    earnings: 5,
-                },
-                {
-                    month: 4,
-                    earnings: 20,
-                },
-            ]
-        },
-        {
-            name: "OneTrust",
-            assignedTo: "Juan Cortes",
-            location: {
-                city: "Atlanta",
-                state: "GA",
-            },
-            status: "Pending",
-            industry: "Beverages",
-            summary: "This is ATL, you better know Coke",
-            contacts: ["Shhhhh"],
-            financialPerformance: [
-                {
-                    month: 1,
-                    earnings: 10,
-                },
-                {
-                    month: 2,
-                    earnings: 15,
-                },
-                {
-                    month: 3,
-                    earnings: 5,
-                },
-                {
-                    month: 4,
-                    earnings: 20,
-                },
-            ]
+            contacts: "Shhhhh",
+            finance: "I keep them afloat",
         },
         {
             name: "Insiten",
-            assignedTo: "Juan Cortes",
             location: {
-                city: "Atlanta",
+                city: "Peachtree Corners",
                 state: "GA",
             },
-            status: "Pending",
-            industry: "Beverages",
-            summary: "This is ATL, you better know Coke",
-            contacts: ["Shhhhh"],
-            financialPerformance: [
-                {
-                    month: 1,
-                    earnings: 10,
-                },
-                {
-                    month: 2,
-                    earnings: 15,
-                },
-                {
-                    month: 3,
-                    earnings: 5,
-                },
-                {
-                    month: 4,
-                    earnings: 20,
-                },
-            ]
+            status: "approved",
+            industry: "Technology",
+            summary: "Everyone I know works here",
+            contacts: "John, Juan, and Eli",
+            finance: "",
         },
         {
-            name: "Coke",
-            assignedTo: "Juan Cortes",
+            name: "OneTrust",
             location: {
-                city: "Atlanta",
-                state: "GA",
+                city: "London",
+                state: "UK",
             },
-            status: "Pending",
-            industry: "Beverages",
-            summary: "This is ATL, you better know Coke",
-            contacts: ["Shhhhh"],
-            financialPerformance: [
-                {
-                    month: 1,
-                    earnings: 10,
-                },
-                {
-                    month: 2,
-                    earnings: 15,
-                },
-                {
-                    month: 3,
-                    earnings: 5,
-                },
-                {
-                    month: 4,
-                    earnings: 20,
-                },
-            ]
+            status: "declined",
+            industry: "Privacy",
+            summary: "Software for privacy professionals",
+            contacts: "Jesslyn Landgren",
+            finance: "Sharp increase over past 6 months",
         },
         {
-            name: "Coke",
-            assignedTo: "Juan Cortes",
+            name: "Chik-fil-a",
             location: {
                 city: "Atlanta",
                 state: "GA",
             },
-            status: "Pending",
-            industry: "Beverages",
-            summary: "This is ATL, you better know Coke",
-            contacts: ["Shhhhh"],
-            financialPerformance: [
-                {
-                    month: 1,
-                    earnings: 10,
-                },
-                {
-                    month: 2,
-                    earnings: 15,
-                },
-                {
-                    month: 3,
-                    earnings: 5,
-                },
-                {
-                    month: 4,
-                    earnings: 20,
-                },
-            ]
+            status: "approved",
+            industry: "Fast Food",
+            summary: "Eat mor chikn",
+            contacts: "The cows?",
+            finance: "Steady for the past two quarters",
         },
         {
-            name: "Coke",
-            assignedTo: "Juan Cortes",
+            name: "Bank of America",
             location: {
-                city: "Atlanta",
-                state: "GA",
+                city: "Charlotte",
+                state: "NC",
             },
-            status: "Pending",
-            industry: "Beverages",
-            summary: "This is ATL, you better know Coke",
-            contacts: ["Shhhhh"],
-            financialPerformance: [
-                {
-                    month: 1,
-                    earnings: 10,
-                },
-                {
-                    month: 2,
-                    earnings: 15,
-                },
-                {
-                    month: 3,
-                    earnings: 5,
-                },
-                {
-                    month: 4,
-                    earnings: 20,
-                },
-            ]
+            status: "researching",
+            industry: "Financial",
+            summary: "",
+            contacts: "John Smith",
+            finance: "In second fiscal year of decline",
         },
         {
-            name: "Coke",
-            assignedTo: "Juan Cortes",
+            name: "Microsoft",
             location: {
-                city: "Atlanta",
-                state: "GA",
+                city: "Seattle",
+                state: "WA",
             },
-            status: "Pending",
-            industry: "Beverages",
-            summary: "This is ATL, you better know Coke",
-            contacts: ["Shhhhh"],
-            financialPerformance: [
-                {
-                    month: 1,
-                    earnings: 10,
-                },
-                {
-                    month: 2,
-                    earnings: 15,
-                },
-                {
-                    month: 3,
-                    earnings: 5,
-                },
-                {
-                    month: 4,
-                    earnings: 20,
-                },
-            ]
+            status: "pending",
+            industry: "Technology",
+            summary: "Develops, manufactures, licenses, supports and sells computer software, consumer electronics and personal computers and services",
+            contacts: "Bill Gates",
+            finance: "Up 5% from last quarter",
         },
         {
-            name: "Coke",
-            assignedTo: "Juan Cortes",
+            name: "Salesforce",
             location: {
-                city: "Atlanta",
-                state: "GA",
+                city: "San Francisco",
+                state: "CA",
             },
-            status: "Pending",
-            industry: "Beverages",
-            summary: "This is ATL, you better know Coke",
-            contacts: ["Shhhhh"],
-            financialPerformance: [
-                {
-                    month: 1,
-                    earnings: 10,
-                },
-                {
-                    month: 2,
-                    earnings: 15,
-                },
-                {
-                    month: 3,
-                    earnings: 5,
-                },
-                {
-                    month: 4,
-                    earnings: 20,
-                },
-            ]
+            status: "approved",
+            industry: "Technology",
+            summary: "American cloud computing company headquartered in San Francisco, California",
+            contacts: "Billy Bob",
+            finance: "Looks strong",
         },
         {
-            name: "Coke",
-            assignedTo: "Juan Cortes",
+            name: "McDonalds",
             location: {
-                city: "Atlanta",
-                state: "GA",
+                city: "Oakbrook",
+                state: "IL",
             },
-            status: "Pending",
-            industry: "Beverages",
-            summary: "This is ATL, you better know Coke",
-            contacts: ["Shhhhh"],
-            financialPerformance: [
-                {
-                    month: 1,
-                    earnings: 10,
-                },
-                {
-                    month: 2,
-                    earnings: 15,
-                },
-                {
-                    month: 3,
-                    earnings: 5,
-                },
-                {
-                    month: 4,
-                    earnings: 20,
-                },
-            ]
+            status: "declined",
+            industry: "Fast Food",
+            summary: "I'm lovin it",
+            contacts: "Joe Smith",
+            finance: "4 quarters of continuous growth",
         },
+
     ];
 
     service.statuses = [
@@ -335,21 +132,68 @@ app.factory("TargetData", function() {
     return service;
 });
 
-app.controller("HeaderController", function($rootScope, $scope, TargetData) {
-    $rootScope.targets = TargetData.data
+app.controller("HeaderController", function($rootScope, $scope, TargetData, $state) {
+    $rootScope.targets = TargetData.data;
     $scope.targets = $rootScope.targets;
+
+    $scope.search = function(searchString) {
+        $scope.results = _.filter($scope.targets, function(target) {
+            return target.name.toLowerCase().startsWith(searchString.toLowerCase());
+        });
+    };
+
+    $scope.go = function(event) {
+        if (event.which === 13) {
+            $scope.focused = false;
+            $scope.query = "";
+            $state.go("single", {name: $scope.results[0].name});
+        }
+    };
+
+    $scope.focus = function() {
+        $scope.focused = true;
+        $scope.query = "";
+        $scope.results = $scope.targets;
+    };
+
+    $scope.blur = function() {
+        $scope.focused = false;
+        $scope.query = "";
+        $scope.results = $scope.targets;
+    };
+
 });
 
 app.controller("ListController", function($rootScope, $scope) {
+    $scope.hover = false;
     $scope.targets = $rootScope.targets;
 });
 
 app.controller("SingleController", function($rootScope, $scope, $stateParams, $state, TargetData) {
+
+    $scope.statusOptions = TargetData.statuses;
+
     $scope.edit = function() {
         $scope.editing = true;
     };
 
     $scope.save = function() {
+        if ($scope.new) {
+            const newTarget = {
+                name: $scope.target.name,
+                location: {
+                    city: $scope.target.location.city,
+                    state: $scope.target.location.state,
+                },
+                status: $scope.target.status,
+                industry: $scope.target.industry,
+                summary: $scope.target.summary,
+                contacts: $scope.target.contacts,
+                finance: $scope.target.finance,
+            };
+            $rootScope.targets.push(newTarget);
+            $state.go("list");
+        }
         $scope.editing = false;
     };
 
@@ -358,13 +202,24 @@ app.controller("SingleController", function($rootScope, $scope, $stateParams, $s
         $state.go("list");
     };
 
-    $scope.statusOptions = TargetData.statuses;
-
     if ($stateParams.name) {
         $scope.new = false;
         $scope.target = _.find($rootScope.targets, {name: $stateParams.name});
         $scope.editing = false;
     } else {
+        $scope.new = true;
+        $scope.target = {
+            name: "",
+            location: {
+                city: "",
+                state: "",
+            },
+            status: "",
+            industry: "",
+            summary: "",
+            contacts: "",
+            finance: "",
+        };
         $scope.edit();
     }
 

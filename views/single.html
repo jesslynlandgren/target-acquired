@@ -2,38 +2,46 @@
     <div class="target-single__header width-100 text-right">
         <i class="fa fa-fw fa-pencil green" ng-if="!editing" ng-click="edit()"></i>
         <i class="fa fa-fw fa-check green" ng-if="editing" ng-click="save()"></i>
-        <i class="fa fa-fw fa-trash delete" ng-click="delete()"></i>
+        <i class="fa fa-fw fa-trash delete" ng-if="!new" ng-click="delete()"></i>
         <i class="fa fa-fw fa-times" ui-sref="list"></i>
     </div>
     <div class="target-single__content">
-        <div class="target-single__property-group column">
+        <div class="target-single__property-group row-vertical-center">
             <span ng-if="!editing" class="target-single__name">{{target.name}}</span>
             <input ng-if="editing" ng-model="target.name" class="target-single__name" type="text" placeholder="Company Name">
-            <div ng-class="{{target.status}}">{{target.status}}</div>
-            <select ng-if="editing" ng-options="status for status in statusOptions" ng-model="target.status"></select>
+            <div ng-if="!editing" class="status {{target.status}}">
+                {{target.status}}
+            </div>
+            <label ng-if="editing" for="targetLocation" class="target-single__property-label">Status</label>
+            <select class="form-control" ng-if="editing" ng-options="status for status in statusOptions" ng-model="target.status"></select>
         </div>
         <div class="target-single__property-group column">
             <label for="targetLocation" class="target-single__property-label">Location</label>
             <span ng-if="!editing">{{target.location.city}}, {{target.location.state}}</span>
             <div class="row-vertical-center">
-                <input ng-if="editing" ng-model="target.location.city" class="col-xs-6" type="text" placeholder="City">
-                <input ng-if="editing" ng-model="target.location.state" class="col-xs-6" type="text" placeholder="State">
+                <input ng-if="editing" ng-model="target.location.city" class="form-control col-xs-6" type="text" placeholder="City">
+                <input ng-if="editing" ng-model="target.location.state" class="form-control col-xs-6" type="text" placeholder="State/Country">
             </div>
+        </div>
+        <div class="target-single__property-group column">
+            <label for="targetIndustry" class="target-single__property-label">Contacts</label>
+            <span ng-if="!editing">{{target.contacts}}</span>
+            <input class="form-control" ng-if="editing" ng-model="target.contacts" type="text" placeholder="Contacts">
         </div>
         <div class="target-single__property-group column">
             <label for="targetIndustry" class="target-single__property-label">Industry</label>
             <span ng-if="!editing">{{target.industry}}</span>
-            <input ng-if="editing" ng-model="target.industry" type="text" placeholder="Industry">
+            <input class="form-control" ng-if="editing" ng-model="target.industry" type="text" placeholder="Industry">
         </div>
         <div class="target-single__property-group column">
             <label for="targetSummary" class="target-single__property-label">Summary</label>
             <span ng-if="!editing">{{target.summary}}</span>
-            <textarea ng-if="editing" ng-model="target.summary" type="text" placeholder="Summary"></textarea>
+            <input class="form-control" ng-if="editing" ng-model="target.summary" type="text" placeholder="Summary"></input>
         </div>
         <div class="target-single__property-group column">
-            <label for="targetSummary" class="target-single__property-label">Contacts</label>
-            <span ng-if="!editing" ng-repeat="contact in target.contacts track by $index">{{contact}}</span>
-            <input ng-if="editing" ng-model="target.contacts" type="text" placeholder="Name">
+            <label for="targetSummary" class="target-single__property-label">Financial Info</label>
+            <span ng-if="!editing">{{target.finance}}</span>
+            <textarea class="form-control" ng-if="editing" ng-model="target.finance" type="text" placeholder="Financial Info"></textarea>
         </div>
     </div>
 </form>

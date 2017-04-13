@@ -1,12 +1,19 @@
 <div class="target-list stretch-vertical">
-    <div class="target-list__item"
+    <div class="target-list__item row-vertical-center"
         ng-repeat="target in targets track by $index"
         ui-sref="single({name: target.name})"
         ng-mouseenter="hover=true"
         ng-mouseleave="hover=false"
         >
-        <span class="target-list__name col-xs-2">{{::target.name}}</span>
-        <span class="target-list__city col-xs-4">{{::target.location.city}}</span>
-        <span class="target-list__status">{{::target.status}}</span>
+        <div class="target-list__value target-list__name stretch-horizontal text-center">{{::target.name}}</div>
+        <div class="target-list__value stretch-horizontal text-center">{{::target.location.city}}</div>
+        <div class="target-list__value stretch-horizontal text-center">
+            <div ng-if="!hover" class="status {{target.status}}">
+                {{target.status}}
+            </div>
+            <div ng-if="hover" class="status status-hover">
+                {{target.status}}
+            </div>
+        </div>
     </div>
 </div>

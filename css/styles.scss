@@ -11,18 +11,10 @@ $body-font: 'Muli', sans-serif;
 $white: #ffffff;
 $red: #d9534f;
 
-/* Clouds */
-$clouds: #ecf0f1;
-$clouds-50: #fdfefe;
-$clouds-100: #fbfcfc;
-$clouds-200: #f7f9f9;
-$clouds-300: #f4f6f7;
-$clouds-400: #f0f3f4;
-$clouds-500: #ecf0f1;
-$clouds-600: #d0d3d4;
-$clouds-700: #b3b6b7;
-$clouds-800: #979a9a;
-$clouds-900: #7b7d7d;
+$researching: #337ab7;
+$pending: #F3BC0C;
+$approved: #5cb85c;
+$declined: #565656;
 
 /* Silver */
 $silver: #bdc3c7;
@@ -37,35 +29,12 @@ $silver-700: #909497;
 $silver-800: #797d7f;
 $silver-900: #626567;
 
-/* Nephritis */
-$nephritis: #27ae60;
-$nephritis-50: #e9f7ef;
-$nephritis-100: #d4efdf;
-$nephritis-200: #a9dfbf;
-$nephritis-300: #7dcea0;
 $nephritis-400: #52be80;
-$nephritis-500: #27ae60;
-$nephritis-600: #229954;
-$nephritis-700: #1e8449;
-$nephritis-800: #196f3d;
-$nephritis-900: #145a32;
-
-/* Green Sea */
-$green-sea: #16a085;
-$green-sea-50: #e8f6f3;
-$green-sea-100: #d0ece7;
-$green-sea-200: #a2d9ce;
-$green-sea-300: #73c6b6;
-$green-sea-400: #45b39d;
-$green-sea-500: #16a085;
-$green-sea-600: #138d75;
-$green-sea-700: #117a65;
-$green-sea-800: #0e6655;
-$green-sea-900: #0b5345;
 
 
 // HELPER CLASSES
 
+.row-vertical-center-space-around,
 .row-vertical-center-space-btwn,
 .row-vertical-center,
 .column,
@@ -78,14 +47,19 @@ $green-sea-900: #0b5345;
     flex-flow: column nowrap;
 }
 
+.row-vertical-center-space-around,
 .row-vertical-center-space-btwn,
 .row-vertical-center,
 .column-horizontal-center {
     align-items: center;
 }
 
-.row-vertical-center-space-btwn, {
+.row-vertical-center-space-btwn {
     justify-content: space-between;
+}
+
+.row-vertical-center-space-around {
+    justify-content: space-around;
 }
 
 .static-horizontal,
@@ -106,6 +80,10 @@ $green-sea-900: #0b5345;
 .static-vertical,
 .stretch-vertical {
     min-height: 1px;
+}
+
+.text-center {
+    text-align: center;
 }
 
 .text-right {
@@ -156,15 +134,39 @@ body {
     }
 
     &__search {
-        border: none;
-        line-height: 4.3rem;
-        padding-left: 2rem;
-        color: $nephritis-400;
 
-        &:focus {
-            outline: none;
-            border: 2px solid $nephritis-400;
+        &-bar {
+            border: none;
+            line-height: 4.3rem;
+            padding-left: 2rem;
+            color: $nephritis-400;
+
+            &:focus {
+                outline: none;
+                border: 2px solid $nephritis-400;
+            }
         }
+
+        &-results {
+            position: relative;
+
+            &-container {
+                position: absolute;
+                background-color: $white;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+                z-index: 1;
+            }
+        }
+
+        &-result {
+            padding: .5rem 2rem;
+
+            &--selected {
+                background-color: $nephritis-400;
+                color: $white;
+            }
+        }
+
     }
 
     &__actions {
@@ -181,7 +183,6 @@ body {
 
 .content {
     padding: 4rem 0 4rem 0;
-    // border: 2px solid green;
 }
 
 .delete {
@@ -197,6 +198,7 @@ body {
     &__item {
         border-bottom: 1px dotted $silver-200;
         padding: 1rem;
+        min-height: 7rem;
 
         &:hover {
             background-color: $nephritis-400;
@@ -204,28 +206,21 @@ body {
         }
     }
 
+    &__value {
+        max-width: 33%;
+    }
+
     &__name {
-        // border: 2px solid green;
-    }
-
-    &__city {
-        // border: 2px solid blue;
-    }
-
-    &__status {
-        // border: 2px solid orange;
-        text-align: center;
+        font-size: 2rem;
     }
 }
 
 .target-single {
-    // border: 2px solid red;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     padding: 2rem 3rem;
     background-color: white;
 
     &__header {
-        // border: 2px solid purple;
         font-size: 2rem;
     }
 
@@ -241,18 +236,53 @@ body {
                 border: 1px solid $nephritis-400;
             }
         }
+
+        select {
+            margin-left: 1rem;
+        }
     }
 
     &__name {
         font-size: 4rem;
+        margin-right: 2rem;
     }
 
     &__property-group {
-        // border: 2px solid blue;
         margin-bottom: 2rem;
     }
 
     &__property-label {
         color: $nephritis-400;
+        font-weight: bold;
     }
+}
+
+.status {
+    padding: 1rem;
+    text-transform: uppercase;
+}
+
+.status-hover {
+    color: $white;
+    border: 2px solid $white;
+}
+
+.researching {
+    color: $researching;
+    border: 2px solid $researching;
+}
+
+.pending {
+    color: $pending;
+    border: 2px solid $pending;
+}
+
+.approved {
+    color: $approved;
+    border: 2px solid $approved;
+}
+
+.declined {
+    color: $declined;
+    border: 2px solid $declined;
 }

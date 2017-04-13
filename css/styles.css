@@ -1,7 +1,5 @@
-/* Clouds */
 /* Silver */
-/* Nephritis */
-/* Green Sea */
+.row-vertical-center-space-around,
 .row-vertical-center-space-btwn,
 .row-vertical-center,
 .column,
@@ -12,6 +10,7 @@
 .column-horizontal-center {
   flex-flow: column nowrap; }
 
+.row-vertical-center-space-around,
 .row-vertical-center-space-btwn,
 .row-vertical-center,
 .column-horizontal-center {
@@ -19,6 +18,9 @@
 
 .row-vertical-center-space-btwn {
   justify-content: space-between; }
+
+.row-vertical-center-space-around {
+  justify-content: space-around; }
 
 .static-horizontal,
 .static-vertical {
@@ -35,6 +37,9 @@
 .static-vertical,
 .stretch-vertical {
   min-height: 1px; }
+
+.text-center {
+  text-align: center; }
 
 .text-right {
   text-align: right; }
@@ -63,14 +68,26 @@ body {
   .header__title {
     font-size: 3.5rem;
     margin-left: 2rem; }
-  .header__search {
+  .header__search-bar {
     border: none;
     line-height: 4.3rem;
     padding-left: 2rem;
     color: #52be80; }
-    .header__search:focus {
+    .header__search-bar:focus {
       outline: none;
       border: 2px solid #52be80; }
+  .header__search-results {
+    position: relative; }
+    .header__search-results-container {
+      position: absolute;
+      background-color: #ffffff;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      z-index: 1; }
+  .header__search-result {
+    padding: .5rem 2rem; }
+    .header__search-result--selected {
+      background-color: #52be80;
+      color: #ffffff; }
   .header__actions {
     margin-left: 1rem;
     font-size: 2rem; }
@@ -91,12 +108,15 @@ body {
   background-color: white; }
   .target-list__item {
     border-bottom: 1px dotted #e5e7e9;
-    padding: 1rem; }
+    padding: 1rem;
+    min-height: 7rem; }
     .target-list__item:hover {
       background-color: #52be80;
       color: #ffffff; }
-  .target-list__status {
-    text-align: center; }
+  .target-list__value {
+    max-width: 33%; }
+  .target-list__name {
+    font-size: 2rem; }
 
 .target-single {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -112,11 +132,39 @@ body {
       .target-single__content input:focus {
         outline: none;
         border: 1px solid #52be80; }
+    .target-single__content select {
+      margin-left: 1rem; }
   .target-single__name {
-    font-size: 4rem; }
+    font-size: 4rem;
+    margin-right: 2rem; }
   .target-single__property-group {
     margin-bottom: 2rem; }
   .target-single__property-label {
-    color: #52be80; }
+    color: #52be80;
+    font-weight: bold; }
+
+.status {
+  padding: 1rem;
+  text-transform: uppercase; }
+
+.status-hover {
+  color: #ffffff;
+  border: 2px solid #ffffff; }
+
+.researching {
+  color: #337ab7;
+  border: 2px solid #337ab7; }
+
+.pending {
+  color: #F3BC0C;
+  border: 2px solid #F3BC0C; }
+
+.approved {
+  color: #5cb85c;
+  border: 2px solid #5cb85c; }
+
+.declined {
+  color: #565656;
+  border: 2px solid #565656; }
 
 /*# sourceMappingURL=styles.css.map */
